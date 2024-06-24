@@ -6,7 +6,7 @@
         <groupId>com.rangers.restaurantservice</groupId>
         <artifactId>RestaurantService</artifactId>
         <version>0.0.1-SNAPSHOT</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath>../pom.xml</relativePath>
     </parent>
 
     <artifactId>appRunner</artifactId>
@@ -29,6 +29,16 @@
         <java.version>21</java.version>
     </properties>
     <dependencies>
+        <dependency>
+            <groupId>com.rangers.restaurantservice</groupId>
+            <artifactId>mainModule</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.rangers.restaurantservice</groupId>
+            <artifactId>telegramBot</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
