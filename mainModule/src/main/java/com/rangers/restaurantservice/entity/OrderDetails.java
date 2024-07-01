@@ -3,6 +3,7 @@ package com.rangers.restaurantservice.entity;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -15,9 +16,9 @@ import java.util.UUID;
 @Document(collection = "order_details")
 public class OrderDetails {
     @Id
-    private UUID odId;
+    private ObjectId odId;
     private Integer quantity;
-    private UUID productId;
+    private ObjectId productId;
     private Order oder;
 
     @Override

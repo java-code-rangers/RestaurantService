@@ -4,6 +4,7 @@ import com.rangers.restaurantservice.enums.Status;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -19,7 +20,7 @@ import java.util.UUID;
 @Document(collection = "orders")
 public class Order {
     @Id
-    private UUID orderId;
+    private ObjectId orderId;
     private User user;
     private LocalDateTime orderDate;
     private Status status;

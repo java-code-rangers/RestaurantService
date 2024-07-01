@@ -3,6 +3,7 @@ package com.rangers.restaurantservice.entity;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -16,7 +17,7 @@ import java.util.UUID;
 @Document(collection = "feedbacks")
 public class Feedback {
     @Id
-    private UUID id;
+    private ObjectId id;
     private User user;
     private Order order;
     private String description;

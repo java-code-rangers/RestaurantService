@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -16,7 +17,7 @@ import java.util.UUID;
 @Document(collection = "cart_items")
 public class CartItems {
     @Id
-    private UUID cartItemsId;
+    private ObjectId cartItemsId;
     private Product product;
     private User user;
     private Integer quantity;
