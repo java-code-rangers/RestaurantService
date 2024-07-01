@@ -1,6 +1,9 @@
 spring:
   main:
     banner-mode: off
+  liquibase:
+    enabled: true
+    url: mongodb+srv://pamail08:GrdjOzRpRV05hrtV@cluster0.gxwfkmx.mongodb.net/restaurant_service
 
 bot:
   name: ${bot.name}
