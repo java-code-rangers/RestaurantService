@@ -3,6 +3,7 @@ package com.rangers.restaurantservice.entity;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -16,7 +17,7 @@ import java.util.UUID;
 @Document(collection = "products")
 public class Product {
     @Id
-    private UUID productId;
+    private ObjectId productId;
     private String name;
     private String description;
     private BigDecimal price;
