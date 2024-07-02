@@ -11,6 +11,7 @@ import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKe
 import java.util.List;
 
 public class BotUtils {
+
     public static SendMessage sendMessage(String chatId, String textToSend) {
         SendMessage sendMessage = new SendMessage();
         sendMessage.setChatId(chatId);
@@ -18,7 +19,7 @@ public class BotUtils {
         return sendMessage;
     }
 
-    private static SendMessage sendMenu(String chatId, List<List<InlineKeyboardButton>> rowsInline, String header) {
+    public static SendMessage sendMenu(String chatId, List<List<InlineKeyboardButton>> rowsInline, String header) {
         SendMessage message = sendMessage(chatId, header);
 
         InlineKeyboardMarkup markupKeyboard = new InlineKeyboardMarkup();
@@ -39,8 +40,16 @@ public class BotUtils {
         return sendMenu(chatId, GetButtons.getListsStartMenu(), MenuHeader.CHOOSE_ACTION);
     }
 
+    public static SendMessage sendStartMenuOwner(String chatId) {
+        return sendMenu(chatId, GetButtons.getListsStartMenuOwner(), MenuHeader.CHOOSE_ACTION);
+    }
+
     public static SendPhoto sendStartMessage(String chatId) {
         return sendPhoto(chatId,"https://th.bing.com/th/id/OIG1.YnHNFmFk4OOEKc0Mec0y?pid=ImgGn", Message.START_MESSAGE);
+    }
+
+    public static SendPhoto sendStartOwnerMessage(String chatId) {
+        return sendPhoto(chatId,"https://th.bing.com/th/id/OIG3.2SINNiXWhrhPNC6lhCLT?pid=ImgGn", Message.START_OWNER_MESSAGE);
     }
 
     private static SendPhoto sendPhoto(String chatId, String photoFileId, String caption) {

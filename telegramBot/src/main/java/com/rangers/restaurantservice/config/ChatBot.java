@@ -6,7 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
+import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.methods.send.SendPhoto;
+import org.telegram.telegrambots.meta.api.methods.updatingmessages.DeleteMessage;
+import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
@@ -14,12 +17,16 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 @Slf4j
 public class ChatBot extends TelegramLongPollingBot {
     private final BotConfig config;
-    private final UpdateHandlerService updateHandlerService;
+    private UpdateHandlerService updateHandlerService;
 
     @Autowired
-    public ChatBot( BotConfig config, UpdateHandlerService updateHandlerService) {
+    public ChatBot(BotConfig config) {
         super(config.getBotToken());
         this.config = config;
+    }
+
+    @Autowired
+    public void setUpdateHandlerService(UpdateHandlerService updateHandlerService) {
         this.updateHandlerService = updateHandlerService;
     }
 
