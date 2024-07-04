@@ -3,12 +3,15 @@ package com.rangers.restaurantservice.service.impl;
 import com.rangers.restaurantservice.dto.ProductDto;
 import com.rangers.restaurantservice.entity.Category;
 import com.rangers.restaurantservice.entity.Product;
+import com.rangers.restaurantservice.entity.User;
 import com.rangers.restaurantservice.mapper.ProductMapper;
 import com.rangers.restaurantservice.repository.CategoryRepository;
 import com.rangers.restaurantservice.repository.ProductRepository;
+import com.rangers.restaurantservice.repository.UserRepository;
 import com.rangers.restaurantservice.service.ProductService;
 import jakarta.ws.rs.NotFoundException;
 import lombok.RequiredArgsConstructor;
+import org.bson.types.ObjectId;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
@@ -20,9 +23,10 @@ public class ProductServiceImpl implements ProductService {
     private final ProductMapper productMapper;
     private final ProductRepository productRepository;
     private final CategoryRepository categoryRepository;
+    private final UserRepository userRepository;
 
     @Override
-    public ProductDto getProductById(String id) {
+    public ProductDto getProductById(ObjectId id) {
         Product product = productRepository.getProductByProductId(id);
         if (product==null) throw new NotFoundException("Product not found !!!");
         return productMapper.toDto(product);
@@ -58,12 +62,14 @@ public class ProductServiceImpl implements ProductService {
 
         Category category = categoryRepository.getCategoryById(productDto.getCategoryId());
         product.setCategory(category);
+        User user = userRepository.getUserByUserId(productDto.getUserId());
+        product.setOwner(user);
         return productMapper.toDto(productRepository.save(product));
     }
 
     @Override
     @Transactional
-    public ProductDto updateProduct(String id, ProductDto productDto) {
+    public ProductDto updateProduct(ObjectId id, ProductDto productDto) {
         if (productDto.getName()!=null) {
             if (!productRepository.getProductByNameContainsIgnoreCase(productDto.getName()).isEmpty()) {
                 throw new RuntimeException("Product with this name is already present !!!");
@@ -78,10 +84,19 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     @Transactional
-    public ProductDto activateDeactivateProduct(String id, boolean value) {
+    public ProductDto activateDeactivateProduct(ObjectId id, boolean value) {
         Product product = productRepository.getProductByProductId(id);
         if (product==null) throw new NotFoundException("Product not found !!!");
         product.setIsActive(value);
         return productMapper.toDto(productRepository.save(product));
+    }
+
+    @Override
+    public List<ProductDto> getProductsByCategoryId(ObjectId categoryId) {
+        categoryRepository.findById(categoryId)
+                .orElseThrow(() -> new NotFoundException(String.format("Category with id %s not found!", categoryId)));
+
+        List<Product> products = productRepository.getProductsByCategoryId(categoryId);
+        return productMapper.toListDto(products);
     }
 }

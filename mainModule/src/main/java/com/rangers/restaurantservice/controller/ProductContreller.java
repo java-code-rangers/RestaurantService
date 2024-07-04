@@ -1,10 +1,9 @@
 package com.rangers.restaurantservice.controller;
 
 import com.rangers.restaurantservice.dto.ProductDto;
-import com.rangers.restaurantservice.entity.Product;
 import com.rangers.restaurantservice.service.ProductService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.validation.annotation.Validated;
+import org.bson.types.ObjectId;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,7 +23,7 @@ public class ProductContreller {
 
     @GetMapping("/{id}")
     //http://localhost:8080/product/...
-    public ProductDto getProductById(@PathVariable("id") String id) {
+    public ProductDto getProductById(@PathVariable("id") ObjectId id) {
         return productService.getProductById(id);
     }
 
@@ -48,8 +47,13 @@ public class ProductContreller {
 
     @PutMapping("/update/{id}")
     //http://localhost:8080/product/update/{id}
-    public ProductDto updateProduct(@PathVariable("id") String id, @RequestBody ProductDto productDto) {
+    public ProductDto updateProduct(@PathVariable("id") ObjectId id, @RequestBody ProductDto productDto) {
         return productService.updateProduct(id, productDto);
     }
 
+    @GetMapping("/categoryId/{idCategory}")
+    //http://localhost:8080/categoryId/...
+    public List<ProductDto> getProductsByCategoryId(@PathVariable("idCategory") ObjectId idCategory) {
+        return productService.getProductsByCategoryId(idCategory);
+    }
 }

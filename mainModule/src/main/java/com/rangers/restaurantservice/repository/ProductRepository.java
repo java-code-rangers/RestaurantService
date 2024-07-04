@@ -9,7 +9,8 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import java.util.List;
 
 public interface ProductRepository extends MongoRepository<Product, ObjectId> {
-    Product getProductByProductId(String id);
+    Product getProductByProductId(ObjectId id);
     List<Product> getProductByNameContainsIgnoreCase(String name);
     List<Product> getProductsByCategory(Category category);
+    List<Product> getProductsByCategoryId(ObjectId id);
 }
