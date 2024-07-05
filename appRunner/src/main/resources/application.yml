@@ -2,6 +2,10 @@ spring:
   main:
     banner-mode: off
 
+  liquibase:
+    change-log: classpath:/db/changelog/changelog-master.xml
+    enabled: true
+
 bot:
   name: ${bot.name}
   token: ${bot.token}

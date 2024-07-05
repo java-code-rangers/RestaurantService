@@ -9,7 +9,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.math.BigDecimal;
 import java.util.Objects;
-import java.util.UUID;
 
 @Getter
 @Setter
@@ -21,10 +20,11 @@ public class Product {
     private String name;
     private String description;
     private BigDecimal price;
+    //@DBRef
     private Category category;
     private User owner;
     private String imageLink;
-    private boolean isActive;
+    private Boolean isActive;
 
     @Override
     public boolean equals(Object o) {
@@ -47,7 +47,6 @@ public class Product {
                 ", description='" + description + '\'' +
                 ", price=" + price +
                 ", category=" + category +
-                ", ownerId=" + owner.getUserId() +
                 ", imageLink='" + imageLink + '\'' +
                 ", isActive=" + isActive +
                 '}';
