@@ -1,5 +1,7 @@
 package com.rangers.restaurantservice.entity;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
@@ -17,9 +19,12 @@ import java.util.UUID;
 @Document(collection = "categories")
 public class Category {
     @Id
+    @JsonSerialize(using = ToStringSerializer.class)
     private ObjectId id;
+    @JsonSerialize(using = ToStringSerializer.class)
     private ObjectId parentId;
     private String name;
+    private Boolean isActive;
 
     @Override
     public boolean equals(Object o) {
