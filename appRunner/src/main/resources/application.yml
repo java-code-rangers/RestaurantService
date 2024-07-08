@@ -4,10 +4,7 @@ spring:
   liquibase:
     enabled: true
     url: mongodb+srv://pamail08:GrdjOzRpRV05hrtV@cluster0.gxwfkmx.mongodb.net/restaurant_service
-
-  liquibase:
     change-log: classpath:/db/changelog/changelog-master.xml
-    enabled: true
 
 bot:
   name: ${bot.name}
