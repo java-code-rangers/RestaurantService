@@ -28,5 +28,4 @@ public class MongoLiquibaseRunner implements CommandLineRunner {
         Liquibase liquiBase = new Liquibase(liquibaseProperties.getChangeLog(), new SpringResourceAccessor(resourceLoader), database);
         liquiBase.update("");
     }
-
 }
