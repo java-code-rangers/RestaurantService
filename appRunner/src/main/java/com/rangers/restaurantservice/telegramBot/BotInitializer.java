@@ -9,18 +9,18 @@ import org.telegram.telegrambots.meta.TelegramBotsApi;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
 
-//@Component
+@Component
 public class BotInitializer {
 
     final ChatBot chatBot;
 
-    //@Autowired
+    @Autowired
     public BotInitializer(ChatBot chatBot) {
         this.chatBot = chatBot;
     }
 
 
-    @EventListener({ApplicationReadyEvent.class})
+    @EventListener({ApplicationReadyEvent.class}) //{ContextRefreshedEvent.class}
     public void init() throws TelegramApiException {
         TelegramBotsApi telegramBotsApi = new TelegramBotsApi(DefaultBotSession.class);
         try {
