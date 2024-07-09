@@ -1,0 +1,10 @@
+spring:
+  main:
+    banner-mode: off
+
+bot:
+  name: ${bot.name}
+  token: ${bot.token}
+
+server:
+  port: 8080
