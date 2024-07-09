@@ -8,7 +8,6 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Objects;
-import java.util.UUID;
 
 @Getter
 @Setter
@@ -19,7 +18,7 @@ public class OrderDetails {
     private ObjectId odId;
     private Integer quantity;
     private ObjectId productId;
-    private Order oder;
+    private Order order;
 
     @Override
     public boolean equals(Object o) {
@@ -40,7 +39,7 @@ public class OrderDetails {
                 "odId=" + odId +
                 ", quantity=" + quantity +
                 ", productId=" + productId +
-                ", oderId=" + oder.getOrderId() +
+                ", oderId=" + order.getOrderId() +
                 '}';
     }
 }
