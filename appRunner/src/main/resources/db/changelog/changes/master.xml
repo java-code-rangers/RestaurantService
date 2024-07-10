@@ -8,6 +8,6 @@
          http://www.liquibase.org/xml/ns/mongodb
          http://www.liquibase.org/xml/ns/mongodb/liquibase-mongodb-latest.xsd">
 
-    <include file="db/changelog/changes/v-0.0.1/2024-02-29-00-create-tables-changelog.xml"/>
+    <include file="db/changelog/changes/v-0.0.1/2024-02-29-00-insert-documents.xml"/>
 
 </databaseChangeLog>

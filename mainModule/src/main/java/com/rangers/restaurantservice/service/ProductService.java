@@ -9,7 +9,7 @@ public interface ProductService {
     ProductDto getProductById(ObjectId id);
     List<ProductDto> getProductsAll();
     List<ProductDto> getProductsByName(String name);
-    List<ProductDto> getProductsByCategory(String category);
+    List<ProductDto> getProductsByCategoryName(String category);
     ProductDto createProduct(ProductDto productDto);
     ProductDto updateProduct(ObjectId id, ProductDto productDto);
     ProductDto activateDeactivateProduct(ObjectId id, boolean value);

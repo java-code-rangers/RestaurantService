@@ -43,7 +43,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List<ProductDto> getProductsByCategory(String categoryName) {
+    public List<ProductDto> getProductsByCategoryName(String categoryName) {
         Category category = categoryRepository.getCategoryByName(categoryName);
         if (category==null) throw new NotFoundException("Category not found !!!");
 
@@ -62,8 +62,10 @@ public class ProductServiceImpl implements ProductService {
 
         Category category = categoryRepository.getCategoryById(productDto.getCategoryId());
         product.setCategory(category);
+
         User user = userRepository.getUserByUserId(productDto.getUserId());
-        product.setOwner(user);
+        product.setUser(user);
+
         return productMapper.toDto(productRepository.save(product));
     }
 
@@ -93,9 +95,8 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public List<ProductDto> getProductsByCategoryId(ObjectId categoryId) {
-        categoryRepository.findById(categoryId)
-                .orElseThrow(() -> new NotFoundException(String.format("Category with id %s not found!", categoryId)));
-
+        categoryRepository.findById(categoryId).orElseThrow(
+                () -> new NotFoundException(String.format("Category with id %s not found!", categoryId)));
         List<Product> products = productRepository.getProductsByCategoryId(categoryId);
         return productMapper.toListDto(products);
     }

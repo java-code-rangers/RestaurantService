@@ -20,7 +20,7 @@ public class BotInitializer {
     }
 
 
-    @EventListener({ApplicationReadyEvent.class}) //{ContextRefreshedEvent.class}
+    @EventListener({ApplicationReadyEvent.class})
     public void init() throws TelegramApiException {
         TelegramBotsApi telegramBotsApi = new TelegramBotsApi(DefaultBotSession.class);
         try {

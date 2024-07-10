@@ -28,15 +28,15 @@ public class ProductContreller {
     }
 
     @GetMapping("/name/{name}")
-    //http://localhost:8080/product/...
+    //http://localhost:8080/product/name/...
     public List<ProductDto> getProductByName(@PathVariable("name") String name) {
         return productService.getProductsByName(name);
     }
 
-    @GetMapping("/category/{nameCategory}")
-    //http://localhost:8080/category/...
-    public List<ProductDto> getProductsByCategory(@PathVariable("nameCategory") String nameCategory) {
-        return productService.getProductsByCategory(nameCategory);
+    @GetMapping("/category-name/{nameCategory}")
+    //http://localhost:8080/product/category-name/...
+    public List<ProductDto> getProductsByCategoryName(@PathVariable("nameCategory") String nameCategory) {
+        return productService.getProductsByCategoryName(nameCategory);
     }
 
     @PostMapping("/create")
@@ -51,8 +51,8 @@ public class ProductContreller {
         return productService.updateProduct(id, productDto);
     }
 
-    @GetMapping("/categoryId/{idCategory}")
-    //http://localhost:8080/categoryId/...
+    @GetMapping("/category-id/{idCategory}")
+    //http://localhost:8080/product/category-id/...
     public List<ProductDto> getProductsByCategoryId(@PathVariable("idCategory") ObjectId idCategory) {
         return productService.getProductsByCategoryId(idCategory);
     }
