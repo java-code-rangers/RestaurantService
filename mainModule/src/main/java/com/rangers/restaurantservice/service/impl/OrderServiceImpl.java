@@ -20,6 +20,7 @@ import org.bson.types.ObjectId;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -76,9 +77,11 @@ public class OrderServiceImpl implements OrderService {
     @Override
     @Transactional
     public void update(ObjectId id, Status status) throws ObjectNotFoundException {
-        repository.findById(id)
-                .orElseThrow(() -> new ObjectNotFoundException(String.format("Order with id '%s' not found", id)))
-                .setStatus(status);
+        Order order = repository.findById(id)
+                .orElseThrow(() -> new ObjectNotFoundException(String.format("Order with id '%s' not found", id)));
+        order.setStatus(status);
+        order.setUpdatedAt(LocalDateTime.now());
+        repository.save(order);
     }
 
     @Override
