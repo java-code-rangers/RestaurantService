@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <!-- Add: users, categories, products -->
+    <changeSet id="insert data in Users collection" author="test">
+        <ext:insertMany collectionName="users">
+            <ext:documents>
+                [
+                {
+                "_id": ObjectId('6681797250f67e6871d91579'),
+                "firstName": "Viktor",
+                "lastName": "Bulatov",
+                "email": "testemail@gmail.com",
+                "phoneNumber": "4738858588388",
+                "role": "OWNER",
+                "chatId": "479322389",
+                "createdAt": "2024-07-07T11:54:04.366+00:00",
+                "updatedAt": "2024-07-07T11:54:04.366+00:00"
+                },
+                {
+                "_id": ObjectId('668a81dc97d24921faf12459'),
+                "firstName": "Alex",
+                "lastName": "Client",
+                "email": "alex_client@gmail.com",
+                "phoneNumber": "4738858588399",
+                "role": "USER",
+                "chatId": "479322390"
+                "createdAt": "2024-07-07T11:54:04.366+00:00",
+                "updatedAt": "2024-07-07T11:54:04.366+00:00"
+                }
+                ]
+            </ext:documents>
+        </ext:insertMany>
+    </changeSet>
+
+    <changeSet id="insert data in Categories collection" author="test">
+        <ext:insertMany collectionName="categories">
+            <ext:documents>
+                [
+                {
+                "_id": ObjectId('6685d4d6d204885cfc728065'),
+                "name": "cake",
+                "isActive": true
+                },
+                {
+                "_id": ObjectId('6685d5aed204885cfc728066'),
+                "name": "donut",
+                "isActive": true
+                },
+                {
+                "_id": ObjectId('6685da712dcd944ce25951fa'),
+                "name": "ice-cream",
+                "isActive": true
+                },
+                {
+                "_id": ObjectId('6685da712dcd944ce25951fb'),
+                "parentId": ObjectId('6685d4d6d204885cfc728065')
+                "name": "biscuit",
+                "isActive": true
+                }
+                ]
+            </ext:documents>
+        </ext:insertMany>
+    </changeSet>
+
+    <changeSet id="insert data in Products collection" author="test">
+        <ext:insertMany collectionName="products">
+            <ext:documents>
+                [
+                {
+                "_id": ObjectId('66842a43c995c63518773a6f'),
+                "name": "Торт ванильный",
+                "description": "сладкий, вкусный торт",
+                "price": 15,
+                "category":
+                    {
+                        "_id": ObjectId('6685d4d6d204885cfc728065'),
+                        "name": "cake",
+                        "isActive": true
+                    },
+                "user":
+                    {
+                        "_id": ObjectId('6681797250f67e6871d91579'),
+                        "firstName": "Viktor",
+                        "lastName": "Bulatov",
+                        "email": "testemail@gmail.com",
+                        "phoneNumber": "4738858588388",
+                        "role": "OWNER",
+                        "chatId": "479322389",
+                        "createdAt": "2024-07-07T11:54:04.366+00:00",
+                        "updatedAt": "2024-07-07T11:54:04.366+00:00"
+                    },
+                "imageLink": null,
+                "isActive": true
+                },
+
+                {
+                "_id": ObjectId('66842a43c995c63518773a6c'),
+                "name": "Торт пинчер",
+                "description": "торт многослойный",
+                "price": 18,
+                "category":
+                    {
+                        "_id": ObjectId('6685d4d6d204885cfc728065'),
+                        "name": "cake",
+                        "isActive": true
+                    },
+                "user":
+                    {
+                        "_id": ObjectId('6681797250f67e6871d91579'),
+                        "firstName": "Viktor",
+                        "lastName": "Bulatov",
+                        "email": "testemail@gmail.com",
+                        "phoneNumber": "4738858588388",
+                        "role": "OWNER",
+                        "chatId": "479322389",
+                        "createdAt": "2024-07-07T11:54:04.366+00:00",
+                        "updatedAt": "2024-07-07T11:54:04.366+00:00"
+                    },
+                "imageLink": null,
+                "isActive": true
+                },
+                {
+                "_id": ObjectId('60d4c3e6d5f4e5a7d13d27a5'),
+                "name": "Пончики шоколадные",
+                "description": "набор пончиков 5 шт в коробке",
+                "price": 10,
+                "category":
+                    {
+                        "_id": ObjectId('6685d5aed204885cfc728066'),
+                        "name": "donut",
+                        "isActive": true
+                    },
+                "user":
+                    {
+                        "_id": ObjectId('668a81dc97d24921faf12459'),
+                        "firstName": "Alex",
+                        "lastName": "Client",
+                        "email": "alex_client@gmail.com",
+                        "phoneNumber": "4738858588399",
+                        "role": "USER",
+                        "chatId": "479322390"
+                        "createdAt": "2024-07-07T11:54:04.366+00:00",
+                        "updatedAt": "2024-07-07T11:54:04.366+00:00"
+                    },
+                "imageLink": null,
+                "isActive": true
+                }
+                ]
+            </ext:documents>
+        </ext:insertMany>
+    </changeSet>
+
+</databaseChangeLog>

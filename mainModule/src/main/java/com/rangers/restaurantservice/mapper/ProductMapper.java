@@ -9,9 +9,11 @@ import java.util.List;
         unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface ProductMapper {
     @Mapping(target = "categoryId", source = "category.id")
+    @Mapping(target = "userId", source = "user.userId")
     ProductDto toDto(Product product);
     List<ProductDto> toListDto(List<Product> products);
 
+    @Mapping(target = "productId", ignore = true)
     Product toEntity(ProductDto productDto);
 
     @Mapping(target = "productId", ignore = true)
