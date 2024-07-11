@@ -22,7 +22,7 @@ public class Product {
     private BigDecimal price;
     //@DBRef
     private Category category;
-    private User owner;
+    private User user;
     private String imageLink;
     private Boolean isActive;
 
