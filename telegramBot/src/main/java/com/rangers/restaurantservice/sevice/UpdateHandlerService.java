@@ -8,6 +8,7 @@ import com.rangers.restaurantservice.util.headers.MenuHeader;
 import com.rangers.restaurantservice.validator.EmailValidator;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.bson.types.ObjectId;
 import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 
@@ -142,7 +143,7 @@ public class UpdateHandlerService {
         userVariableMap.get(chatId).setIsRegistrationInProgress(true);
         return sendMessage(chatId, "Hello! Let's start registration. Enter your name:");
     }
-    private String getUserId(String chatId) {
+    private ObjectId getUserId(String chatId) {
         return userService.getUserByChatId(chatId).getId();
     }
 
