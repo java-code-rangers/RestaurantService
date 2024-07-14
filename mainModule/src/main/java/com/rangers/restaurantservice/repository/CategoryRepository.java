@@ -12,4 +12,5 @@ public interface CategoryRepository extends MongoRepository<Category, ObjectId> 
     Category getCategoryByName(String categoryName);
     Category getCategoryById(ObjectId id);
     Optional<Category> findByName(String name);
+    Category deleteByName(String name);
 }
