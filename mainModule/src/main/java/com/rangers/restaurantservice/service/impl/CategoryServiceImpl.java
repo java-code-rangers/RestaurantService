@@ -5,8 +5,10 @@ import com.rangers.restaurantservice.repository.CategoryRepository;
 import com.rangers.restaurantservice.service.CategoryService;
 import jakarta.ws.rs.BadRequestException;
 import javassist.tools.rmi.ObjectNotFoundException;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.bson.types.ObjectId;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -16,6 +18,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class CategoryServiceImpl implements CategoryService {
     private final CategoryRepository categoryRepository;
+
     @Override
     public Category getCategoryById(ObjectId id) throws ObjectNotFoundException {
         return categoryRepository.findById(id).orElseThrow(() -> new ObjectNotFoundException("Category not found"));
@@ -28,7 +31,8 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public Category getCategoryByName(String name) throws ObjectNotFoundException {
-        return categoryRepository.findByName(name).orElseThrow(() -> new ObjectNotFoundException("Category not found"));
+        return categoryRepository.findByName(name)
+                .orElseThrow(() -> new ObjectNotFoundException("Category not found"));
     }
 
     @Override
@@ -38,7 +42,7 @@ public class CategoryServiceImpl implements CategoryService {
         try {
             getCategoryByName(name);
         } catch (ObjectNotFoundException e) {
-            if (parentId != null){
+            if (parentId != null) {
                 try {
                     Category checkParent = getCategoryById(parentId);
                     newCategory.setParentId(checkParent.getId());
