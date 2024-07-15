@@ -28,7 +28,7 @@
                     "lastName": "Client",
                     "email": "alex_client@gmail.com",
                     "phoneNumber": "4738858588399",
-                    "role": "USER",
+                    "role": "CLIENT",
                     "chatId": "479322390"
                     "createdAt": "2024-07-07T11:54:04.366+00:00",
                     "updatedAt": "2024-07-07T11:54:04.366+00:00"
@@ -143,7 +143,7 @@
                         "lastName": "Client",
                         "email": "alex_client@gmail.com",
                         "phoneNumber": "4738858588399",
-                        "role": "USER",
+                        "role": "CLIENT",
                         "chatId": "479322390"
                         "createdAt": "2024-07-07T11:54:04.366+00:00",
                         "updatedAt": "2024-07-07T11:54:04.366+00:00"
