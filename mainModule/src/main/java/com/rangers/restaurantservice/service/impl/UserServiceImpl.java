@@ -6,12 +6,14 @@ import com.rangers.restaurantservice.enums.Role;
 import com.rangers.restaurantservice.mapper.UserMapper;
 import com.rangers.restaurantservice.repository.UserRepository;
 import com.rangers.restaurantservice.service.UserService;
+import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
+//@Data
 public class UserServiceImpl implements UserService {
 
     private final UserMapper userMapper;
