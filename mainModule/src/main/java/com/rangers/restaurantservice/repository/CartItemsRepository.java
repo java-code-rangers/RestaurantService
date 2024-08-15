@@ -10,8 +10,7 @@ import java.util.List;
 
 @Repository
 public interface CartItemsRepository extends MongoRepository<CartItems, ObjectId> {
-    @Query("{ 'user': ?0 }")
-    List<CartItems> findAllByUserId(ObjectId userId);
+    List<CartItems> findAllByUser_UserId(ObjectId userId);
 
     @Query(value = "{ 'user': ?0 }", delete = true)
     void deleteAllByUserId(ObjectId userId);

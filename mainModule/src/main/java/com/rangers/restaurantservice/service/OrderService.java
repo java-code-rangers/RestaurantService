@@ -2,7 +2,6 @@ package com.rangers.restaurantservice.service;
 
 import com.rangers.restaurantservice.dto.CartItemsDto;
 import com.rangers.restaurantservice.dto.OrderDto;
-import com.rangers.restaurantservice.entity.Category;
 import com.rangers.restaurantservice.enums.Status;
 import javassist.tools.rmi.ObjectNotFoundException;
 import org.bson.types.ObjectId;
@@ -16,9 +15,9 @@ public interface OrderService {
 
     List<OrderDto> findAllByUserId(ObjectId userId);
 
-    List<OrderDto> findAllByCategory(Category category);
+    List<OrderDto> findAllByCategory(ObjectId categoryId) throws ObjectNotFoundException;
 
-    OrderDto create(List<CartItemsDto> cartItemsDtos);
+    OrderDto create(List<CartItemsDto> cartItemsDtos) throws ObjectNotFoundException;
 
     void update(ObjectId id, Status status) throws ObjectNotFoundException;
 

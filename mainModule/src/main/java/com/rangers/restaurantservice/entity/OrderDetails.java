@@ -39,7 +39,7 @@ public class OrderDetails {
                 "odId=" + odId +
                 ", quantity=" + quantity +
                 ", productId=" + productId +
-                ", oderId=" + order.getOrderId() +
+                ", orderId=" + (order != null ? order.getOrderId() : "null")+
                 '}';
     }
 }

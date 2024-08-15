@@ -12,7 +12,6 @@ public class OrderDetailsDto {
     private Integer quantity;
     @JsonSerialize(using = ToStringSerializer.class)
     private ObjectId productId;
-    private String productName;
     @JsonSerialize(using = ToStringSerializer.class)
-    private ObjectId oderId;
+    private ObjectId orderId;
 }

@@ -1,29 +1,36 @@
 package com.rangers.restaurantservice.mapper;
 
 
-import com.rangers.restaurantservice.dto.OrderDetailsDto;
 import com.rangers.restaurantservice.dto.OrderDto;
 import com.rangers.restaurantservice.entity.Order;
-import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
-import org.mapstruct.MappingConstants;
-import org.mapstruct.ReportingPolicy;
+import com.rangers.restaurantservice.enums.Status;
+import org.mapstruct.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING,
-        unmappedTargetPolicy = ReportingPolicy.IGNORE)
+        unmappedTargetPolicy = ReportingPolicy.IGNORE,
+        imports = {LocalDateTime.class, OrderDetailsMapper.class})
 public interface OrderMapper {
-    @Mapping(target = "createdAt", expression = "java(java.time.LocalDateTime.now())")
-    @Mapping(target = "orderDate", expression = "java(java.time.LocalDateTime.now())")
+    @Mapping(target = "createdAt", source = "createdAt")
+    @Mapping(target = "updatedAt", source = "updatedAt")
+    @Mapping(target = "orderDate", source = "orderDate")
+    @Mapping(target = "userId", source = "user.userId")
+    @Mapping(target = "orderDetailsDtoList", source = "orderDetailsList")
     OrderDto toDto(Order order);
 
+//    @AfterMapping
+//    default void toDto( @MappingTarget OrderDto orderDto) {
+//        if (orderDto != null && orderDto.getCreatedAt() == null) {
+//            orderDto.setCreatedAt(LocalDateTime.now());
+//            orderDto.setUpdatedAt(LocalDateTime.now());
+//            orderDto.setOrderDate(LocalDateTime.now());
+//            orderDto.setStatus(String.valueOf(Status.PROCESSING));
+//        }
+//    }
 
     Order toEntity(OrderDto orderDto);
 
     List<OrderDto> toDtoList(List<Order> orders);
-
-    List<Order> toEntityList(List<OrderDto> orderDtos);
-
-//    OrderDto orderDetailsDtosToOrderDto(List<OrderDetailsDto> orderDetailsDto);
 }

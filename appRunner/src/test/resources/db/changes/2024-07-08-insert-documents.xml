@@ -155,5 +155,357 @@
             </ext:documents>
         </ext:insertMany>
     </changeSet>
+    <!-- Insert data into CartItems collection -->
+    <changeSet id="insert data in CartItems collection" author="test">
+        <ext:insertMany collectionName="cart_items">
+            <ext:documents>
+                [
+                {
+                "_id": ObjectId('70d5a6e7b7f84512a22c15b9'),
+                "product": {
+                "_id": ObjectId('66842a43c995c63518773a6f'),
+                "name": "Торт ванильный",
+                "description": "сладкий, вкусный торт",
+                "price": 15,
+                "category": {
+                "_id": ObjectId('6685d4d6d204885cfc728065'),
+                "name": "cake",
+                "isActive": true
+                },
+                "user": {
+                "_id": ObjectId('6681797250f67e6871d91579'),
+                "firstName": "Viktor",
+                "lastName": "Bulatov",
+                "email": "testemail@gmail.com",
+                "phoneNumber": "4738858588388",
+                "role": "OWNER",
+                "chatId": "479322389",
+                "createdAt": "2024-07-07T11:54:04.366+00:00",
+                "updatedAt": "2024-07-07T11:54:04.366+00:00"
+                },
+                "imageLink": null,
+                "isActive": true
+                },
+                "user":
+                {
+                "_id": ObjectId('668a81dc97d24921faf12459'),
+                "firstName": "Alex",
+                "lastName": "Client",
+                "email": "alex_client@gmail.com",
+                "phoneNumber": "4738858588399",
+                "role": "CLIENT",
+                "chatId": "479322390"
+                "createdAt": "2024-07-07T11:54:04.366+00:00",
+                "updatedAt": "2024-07-07T11:54:04.366+00:00"
+                },
+                "quantity": 2
+                },
+
+                {
+                "_id": ObjectId('70d5a6e7b7f84512a22c15b0'),
+                "product": {
+                "_id": ObjectId('66842a43c995c63518773a6f'),
+                "name": "Торт ванильный",
+                "description": "сладкий, вкусный торт",
+                "price": 15,
+                "category": {
+                "_id": ObjectId('6685d4d6d204885cfc728065'),
+                "name": "cake",
+                "isActive": true
+                },
+                "user": {
+                "_id": ObjectId('6681797250f67e6871d91579'),
+                "firstName": "Viktor",
+                "lastName": "Bulatov",
+                "email": "testemail@gmail.com",
+                "phoneNumber": "4738858588388",
+                "role": "OWNER",
+                "chatId": "479322389",
+                "createdAt": "2024-07-07T11:54:04.366+00:00",
+                "updatedAt": "2024-07-07T11:54:04.366+00:00"
+                },
+                "imageLink": null,
+                "isActive": true
+                },
+                "user":
+                {
+                "_id": ObjectId('668a81dc97d24921faf12459'),
+                "firstName": "Alex",
+                "lastName": "Client",
+                "email": "alex_client@gmail.com",
+                "phoneNumber": "4738858588399",
+                "role": "CLIENT",
+                "chatId": "479322390"
+                "createdAt": "2024-07-07T11:54:04.366+00:00",
+                "updatedAt": "2024-07-07T11:54:04.366+00:00"
+                },
+                "quantity": 2
+                },
+
+                {
+                "_id": ObjectId('70d5a6e7b7f84512a22c15b3'),
+                "product": {
+                "_id": ObjectId('66842a43c995c63518773a6f'),
+                "name": "Торт ванильный",
+                "description": "сладкий, вкусный торт",
+                "price": 15,
+                "category": {
+                "_id": ObjectId('6685d4d6d204885cfc728065'),
+                "name": "cake",
+                "isActive": true
+                },
+                "user": {
+                "_id": ObjectId('6681797250f67e6871d91579'),
+                "firstName": "Viktor",
+                "lastName": "Bulatov",
+                "email": "testemail@gmail.com",
+                "phoneNumber": "4738858588388",
+                "role": "OWNER",
+                "chatId": "479322389",
+                "createdAt": "2024-07-07T11:54:04.366+00:00",
+                "updatedAt": "2024-07-07T11:54:04.366+00:00"
+                },
+                "imageLink": null,
+                "isActive": true
+                },
+                "user": {
+                "_id": ObjectId('6681797250f67e6871d91579'),
+                "firstName": "Viktor",
+                "lastName": "Bulatov",
+                "email": "testemail@gmail.com",
+                "phoneNumber": "4738858588388",
+                "role": "OWNER",
+                "chatId": "479322389",
+                "createdAt": "2024-07-07T11:54:04.366+00:00",
+                "updatedAt": "2024-07-07T11:54:04.366+00:00"
+                },
+                "quantity": 2
+                },
+
+                {
+                "_id": ObjectId('70d5a6e7b7f84512a22c15b4'),
+                "product": {
+                "_id": ObjectId('66842a43c995c63518773a6c'),
+                "name": "Торт пинчер",
+                "description": "торт многослойный",
+                "price": 18,
+                "category": {
+                "_id": ObjectId('6685d4d6d204885cfc728065'),
+                "name": "cake",
+                "isActive": true
+                },
+                "user": {
+                "_id": ObjectId('6681797250f67e6871d91579'),
+                "firstName": "Viktor",
+                "lastName": "Bulatov",
+                "email": "testemail@gmail.com",
+                "phoneNumber": "4738858588388",
+                "role": "OWNER",
+                "chatId": "479322389",
+                "createdAt": "2024-07-07T11:54:04.366+00:00",
+                "updatedAt": "2024-07-07T11:54:04.366+00:00"
+                },
+                "imageLink": null,
+                "isActive": true
+                },
+                "user": {
+                "_id": ObjectId('6681797250f67e6871d91579'),
+                "firstName": "Viktor",
+                "lastName": "Bulatov",
+                "email": "testemail@gmail.com",
+                "phoneNumber": "4738858588388",
+                "role": "OWNER",
+                "chatId": "479322389",
+                "createdAt": "2024-07-07T11:54:04.366+00:00",
+                "updatedAt": "2024-07-07T11:54:04.366+00:00"
+                },
+                "quantity": 1
+                },
+
+                {
+                "_id": ObjectId('70d5a6e7b7f84512a22c15b5'),
+                "product": {
+                "_id": ObjectId('60d4c3e6d5f4e5a7d13d27a5'),
+                "name": "Пончики шоколадные",
+                "description": "набор пончиков 5 шт в коробке",
+                "price": 10,
+                "category": {
+                "_id": ObjectId('6685d5aed204885cfc728066'),
+                "name": "donut",
+                "isActive": true
+                },
+                "user": {
+                "_id": ObjectId('668a81dc97d24921faf12459'),
+                "firstName": "Alex",
+                "lastName": "Client",
+                "email": "alex_client@gmail.com",
+                "phoneNumber": "4738858588399",
+                "role": "CLIENT",
+                "chatId": "479322390",
+                "createdAt": "2024-07-07T11:54:04.366+00:00",
+                "updatedAt": "2024-07-07T11:54:04.366+00:00"
+                },
+                "imageLink": null,
+                "isActive": true
+                },
+                "user": {
+                "_id": ObjectId('6681797250f67e6871d91579'),
+                "firstName": "Viktor",
+                "lastName": "Bulatov",
+                "email": "testemail@gmail.com",
+                "phoneNumber": "4738858588388",
+                "role": "OWNER",
+                "chatId": "479322389",
+                "createdAt": "2024-07-07T11:54:04.366+00:00",
+                "updatedAt": "2024-07-07T11:54:04.366+00:00"
+                },
+                "quantity": 5
+                }
+                ]
+            </ext:documents>
+        </ext:insertMany>
+    </changeSet>
+
+    <!-- Insert data into OrderDetails collection -->
+    <changeSet id="insert data in OrderDetails collection" author="test">
+        <ext:insertMany collectionName="order_details">
+            <ext:documents>
+                [
+                {
+                "_id": ObjectId('71d5a6e7b7f84512a22c15d1'),
+                "quantity": 2,
+                "productId": ObjectId('66842a43c995c63518773a6f'),
+                "orderId": ObjectId('71d5a6e7b7f84512a22c15b1')
+                },
+                {
+                "_id": ObjectId('71d5a6e7b7f84512a22c15d2'),
+                "quantity": 1,
+                "productId": ObjectId('66842a43c995c63518773a6c'),
+                "orderId": ObjectId('71d5a6e7b7f84512a22c15b1')
+                },
+                {
+                "_id": ObjectId('71d5a6e7b7f84512a22c15d3'),
+                "quantity": 5,
+                "productId": ObjectId('60d4c3e6d5f4e5a7d13d27a5'),
+                "orderId": ObjectId('71d5a6e7b7f84512a22c15b1')
+                }
+                ]
+            </ext:documents>
+        </ext:insertMany>
+    </changeSet>
+
+    <!-- Insert data into Order collection -->
+    <changeSet id="insert data in Order collection" author="test">
+        <ext:insertMany collectionName="orders">
+            <ext:documents>
+                [
+                {
+                "_id": ObjectId('71d5a6e7b7f84512a22c15b1'),
+                "user": {
+                "_id": ObjectId('6681797250f67e6871d91579'),
+                "firstName": "Viktor",
+                "lastName": "Bulatov",
+                "email": "testemail@gmail.com",
+                "phoneNumber": "4738858588388",
+                "role": "OWNER",
+                "chatId": "479322389",
+                "createdAt": "2024-07-07T11:54:04.366+00:00",
+                "updatedAt": "2024-07-07T11:54:04.366+00:00"
+                },
+                "orderDate": "2024-07-30T23:18:55.297186",
+                "status": "PROCESSING",
+                "sum": 45.00,
+                "createdAt": "2024-07-30T23:18:55.297186",
+                "updatedAt": "2024-07-30T23:18:55.297186",
+                "orderDetailsList": [
+                {
+                "_id": ObjectId('71d5a6e7b7f84512a22c15d1'),
+                "quantity": 2,
+                "productId": ObjectId('66842a43c995c63518773a6f'),
+                "order": {
+                "_id": ObjectId('71d5a6e7b7f84512a22c15b1')
+                }
+                },
+                {
+                "_id": ObjectId('71d5a6e7b7f84512a22c15d2'),
+                "quantity": 1,
+                "productId": ObjectId('66842a43c995c63518773a6c'),
+                "order": {
+                "_id": ObjectId('71d5a6e7b7f84512a22c15b1')
+                }
+                }
+                ]
+                },
+                {
+                "_id": ObjectId('71d5a6e7b7f84512a22c15b2'),
+                "user": {
+                "_id": ObjectId('668a81dc97d24921faf12459'),
+                "firstName": "Alex",
+                "lastName": "Client",
+                "email": "alex_client@gmail.com",
+                "phoneNumber": "4738858588399",
+                "role": "CLIENT",
+                "chatId": "479322390",
+                "createdAt": "2024-07-07T11:54:04.366+00:00",
+                "updatedAt": "2024-07-07T11:54:04.366+00:00"
+                },
+                "orderDate": "2024-07-30T23:18:55.297186",
+                "status": "COMPLETED",
+                "sum": 10.00,
+                "createdAt": "2024-07-30T23:18:55.297186",
+                "updatedAt": "2024-07-30T23:18:55.297186",
+                "orderDetailsList": [
+                {
+                "_id": ObjectId('71d5a6e7b7f84512a22c15d3'),
+                "quantity": 5,
+                "productId": ObjectId('60d4c3e6d5f4e5a7d13d27a5'),
+                "order": {
+                "_id": ObjectId('71d5a6e7b7f84512a22c15b2')
+                }
+                }
+                ]
+                },
+                {
+                "_id": ObjectId('71d5a6e7b7f84512a22c15b3'),
+                "user": {
+                "_id": ObjectId('6681797250f67e6871d91579'),
+                "firstName": "Viktor",
+                "lastName": "Bulatov",
+                "email": "testemail@gmail.com",
+                "phoneNumber": "4738858588388",
+                "role": "OWNER",
+                "chatId": "479322389",
+                "createdAt": "2024-07-07T11:54:04.366+00:00",
+                "updatedAt": "2024-07-07T11:54:04.366+00:00"
+                },
+                "orderDate": "2024-07-30T23:18:55.297186",
+                "status": "CANCELED",
+                "sum": 30.00,
+                "createdAt": "2024-07-30T23:18:55.297186",
+                "updatedAt": "2024-07-30T23:18:55.297186",
+                "orderDetailsList": [
+                {
+                "_id": ObjectId('71d5a6e7b7f84512a22c15d4'),
+                "quantity": 1,
+                "productId": ObjectId('66842a43c995c63518773a6f'),
+                "order": {
+                "_id": ObjectId('71d5a6e7b7f84512a22c15b3')
+                }
+                },
+                {
+                "_id": ObjectId('71d5a6e7b7f84512a22c15d5'),
+                "quantity": 2,
+                "productId": ObjectId('66842a43c995c63518773a6c'),
+                "order": {
+                "_id": ObjectId('71d5a6e7b7f84512a22c15b3')
+                }
+                }
+                ]
+                }
+                ]
+            </ext:documents>
+        </ext:insertMany>
+    </changeSet>
+
 
 </databaseChangeLog>

@@ -1,5 +1,6 @@
 package com.rangers.restaurantservice.repository;
 
+import com.rangers.restaurantservice.dto.OrderDetailsDto;
 import com.rangers.restaurantservice.entity.OrderDetails;
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
@@ -10,6 +11,7 @@ import java.util.List;
 
 @Repository
 public interface OrderDetailsRepository extends MongoRepository<OrderDetails, ObjectId> {
-    @Query("{ 'product_id': { $in: ?0 } }")
-    List<OrderDetails> findAllByProductIdIn(List<ObjectId> productIds);
+    List<OrderDetails> findAllByProductId(ObjectId productId);
+
+
 }

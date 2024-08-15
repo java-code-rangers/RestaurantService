@@ -61,7 +61,7 @@ class CategoryServiceImplTest {
     void createCategoryPositiveTest() {
         // create category with parentId
         String result1 = categoryService.createCategory
-                (new ObjectId("6685d5aed204885cfc728066"), "newCategory1");
+                (new ObjectId("6685d4d6d204885cfc728065"), "newCategory1");
         // create category without parentId
         String result2 = categoryService.createCategory(null, "newCategory2");
         Assertions.assertEquals("Category created", result1);

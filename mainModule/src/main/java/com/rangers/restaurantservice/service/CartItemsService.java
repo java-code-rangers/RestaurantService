@@ -13,7 +13,7 @@ public interface CartItemsService {
 
     CartItemsDto create(CartItemsDto cartItemsDto) throws ObjectNotFoundException;
 
-    CartItemsDto updateQuantity(ObjectId id, Integer quantity) throws ObjectNotFoundException;
+    void updateQuantity(ObjectId id, Integer quantity) throws ObjectNotFoundException;
 
     void deleteAllByUserId(ObjectId userId);
 

@@ -34,7 +34,7 @@ public class CartItemsServiceImpl implements CartItemsService {
     @Override
     @Transactional
     public List<CartItemsDto> findAll(ObjectId userId) {
-        return mapper.toDtoList(repository.findAllByUserId(userId));
+        return mapper.toDtoList(repository.findAllByUser_UserId(userId));
     }
 
     @Override
@@ -50,11 +50,11 @@ public class CartItemsServiceImpl implements CartItemsService {
 
     @Override
     @Transactional
-    public CartItemsDto updateQuantity(ObjectId id, Integer quantity) throws ObjectNotFoundException {
+    public void updateQuantity(ObjectId id, Integer quantity) throws ObjectNotFoundException {
         CartItems cartItems = repository.findById(id)
                 .orElseThrow(() -> new ObjectNotFoundException(String.format("Cart item with id '%s' not found", id)));
         cartItems.setQuantity(quantity);
-        return mapper.toDto(repository.save(cartItems));
+        mapper.toDto(repository.save(cartItems));
     }
 
     @Override
