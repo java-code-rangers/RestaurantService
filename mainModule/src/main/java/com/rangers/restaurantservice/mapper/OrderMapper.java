@@ -3,7 +3,6 @@ package com.rangers.restaurantservice.mapper;
 
 import com.rangers.restaurantservice.dto.OrderDto;
 import com.rangers.restaurantservice.entity.Order;
-import com.rangers.restaurantservice.enums.Status;
 import org.mapstruct.*;
 
 import java.time.LocalDateTime;
@@ -20,15 +19,14 @@ public interface OrderMapper {
     @Mapping(target = "orderDetailsDtoList", source = "orderDetailsList")
     OrderDto toDto(Order order);
 
-//    @AfterMapping
-//    default void toDto( @MappingTarget OrderDto orderDto) {
-//        if (orderDto != null && orderDto.getCreatedAt() == null) {
-//            orderDto.setCreatedAt(LocalDateTime.now());
-//            orderDto.setUpdatedAt(LocalDateTime.now());
-//            orderDto.setOrderDate(LocalDateTime.now());
-//            orderDto.setStatus(String.valueOf(Status.PROCESSING));
-//        }
-//    }
+    @AfterMapping
+    default void toDto(@MappingTarget OrderDto orderDto, Order order) {
+        OrderDetailsMapper odm = new OrderDetailsMapperImpl();
+
+        orderDto.setOrderDetailsDtoList(order.getOrderDetailsList().stream()
+                .map(odm::toDto)
+                .toList());
+    }
 
     Order toEntity(OrderDto orderDto);
 

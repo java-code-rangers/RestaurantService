@@ -115,21 +115,17 @@ public class OrderServiceImpl implements OrderService {
 
         List<OrderDetails> orderDetails = orderDetailsMapper.toEntityList(orderDetailsDtos, repository);
         orderDetailsRepository.saveAll(orderDetails);
-//        System.out.println(orderDetails);
+
         finalOrder.setOrderDetailsList(orderDetails);
         finalOrder.setUser(userRepository.findById(cartItemsDtos.getFirst().getUserId())
                 .orElseThrow(() -> new ObjectNotFoundException(String.format("User with id '%s' not found", cartItemsDtos.getFirst().getUserId()))));
 
-        order.setCreatedAt(LocalDateTime.now());
-        order.setOrderDate(LocalDateTime.now());
-        order.setUpdatedAt(LocalDateTime.now());
-        order.setStatus(Status.PROCESSING);
+        finalOrder.setCreatedAt(LocalDateTime.now());
+        finalOrder.setOrderDate(LocalDateTime.now());
+        finalOrder.setUpdatedAt(LocalDateTime.now());
+        finalOrder.setStatus(Status.PROCESSING);
 
-        order = repository.save(finalOrder);
-        order.setOrderDetailsList(orderDetails);
-        //        orderDto.setOrderDetailsDtoList(orderDetailsDtos);
-
-        return mapper.toDto(order);
+        return mapper.toDto(repository.save(finalOrder));
     }
 
 
